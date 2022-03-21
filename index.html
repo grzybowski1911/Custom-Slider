@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<title>Custom Slider Thingy</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" href="assets/css/main.css">
+<body>
+
+    <div class="custom-slider">
+        <div class="slider-content">
+            <div class="slider-item">
+                <img class="slide-img active" src="john/unnamed-1.jpg" alt="">
+            </div>
+            <div class="slider-item">
+                <img class="slide-img" src="john/unnamed-2.jpg" alt="">
+            </div>
+            <div class="slider-item">
+                <img class="slide-img" src="john/unnamed-3.jpg" alt="">
+            </div>
+            <div class="slider-item">
+                <img class="slide-img" src="john/unnamed-4.jpg" alt="">
+            </div>
+            <div class="slider-item">
+                <img class="slide-img" src="john/unnamed-5.jpg" alt="">
+            </div>
+            <div class="slider-item">
+                <img class="slide-img" src="john/unnamed-6.jpg" alt="">
+            </div>
+        </div>
+        <div class="slider-controls">
+            <div id="next">
+                next
+            </div>
+            <div id="prev">
+                prev
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+
+    let curPos = 0; 
+    let slides = document.getElementsByClassName('slide-img');
+    let nbtn = document.getElementById('next');
+    let pbtn = document.getElementById('prev');
+
+    //for (var i = 0; i < slides.length; i++) {
+    //    console.log((slides.item(i)));
+    //}
+
+    nbtn.addEventListener("click", ()=>{
+        console.log('next');
+        slides.item(curPos).classList.remove('active');
+        slides.item(curPos+1).classList.add('active');
+        curPos++;
+    });
+
+    pbtn.addEventListener("click", ()=>{
+        console.log('prev');
+        slides.item(curPos).classList.remove('active');
+        slides.item(curPos-1).classList.add('active');
+        curPos--;
+    });
+
+    </script>
+</html>

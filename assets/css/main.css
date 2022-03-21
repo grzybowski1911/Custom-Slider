@@ -1,0 +1,23 @@
+.custom-slider .slider-content {
+  max-width: 900px;
+  margin: 0 auto;
+  height: 600px;
+  display: flex;
+  overflow-x: scroll;
+}
+.custom-slider .slider-content .slider-item img {
+  width: 200px;
+  transition: all 0.5s;
+}
+.custom-slider .slider-content .slider-item .active {
+  width: 600px;
+}
+.custom-slider .slider-controls {
+  margin: 0 auto;
+  width: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+/*# sourceMappingURL=main.css.map */

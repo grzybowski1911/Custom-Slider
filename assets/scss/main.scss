@@ -1,14 +1,16 @@
 .custom-slider {
     .slider-content {
-        max-width: 900px;
+        max-width: 1000px;
         margin: 0 auto;
         height: 600px;
+        display: flex;
+        align-items: center;
         display: flex;
         overflow-x: scroll;
         .slider-item {
             img {
                 width: 200px;
-                transition: all .5s;
+                transition: width .5s;
             }
             .active {
                 width: 600px;

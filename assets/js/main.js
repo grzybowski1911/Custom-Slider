@@ -3,16 +3,24 @@ let slides = document.getElementsByClassName('slide-img');
 let nbtn = document.getElementById('next');
 let pbtn = document.getElementById('prev');
 
-//for (var i = 0; i < slides.length; i++) {
-//    console.log((slides.item(i)));
-//}
+var slideContainer = document.getElementById("slide-container");
+var slide = slideContainer.getElementsByTagName("img");
+
+for (var i = 0; i < slide.length; i++) {
+  slide[i].addEventListener("click", function() {
+    (document.querySelector('.active')) ? document.querySelector('.active').classList.remove('active') : '';
+    this.classList.add('active');
+    if(curPos != 0 || curPos % 3 == 1) {
+        document.getElementsByClassName('slider-content')[0].scrollLeft += 200;
+    }
+    curPos++;
+  });
+} 
 
 nbtn.addEventListener("click", ()=>{
     console.log('next');
     slides.item(curPos).classList.remove('active');
     slides.item(curPos+1).classList.add('active');
-    //let leftPos = document.getElementsByClassName('active')[0].offsetLeft;
-    //let sliderPos = document.getElementsByClassName('slider-content')[0].scrollLeft;
     if(curPos != 0 || curPos % 3 == 1) {
         document.getElementsByClassName('slider-content')[0].scrollLeft += 200;
     }
@@ -42,3 +50,19 @@ let leftPos = document.getElementsByClassName('active')[0].offsetLeft;
 let sliderPos = document.getElementsByClassName('slider-content')[0].scrollLeft;
 // get width of slider div
 let sliderWidth = document.getElementsByClassName('slider-content')[0].offsetWidth;
+
+// FIND THE TOTAL AVAILABLE SCROLL AREA IN HORIZONTAL SCROLL BAR
+
+let maxScroll = slideContainer.scrollWidth;
+
+console.log(maxScroll);
+
+// DIVIDE NUMBER OF ITEMS IN CONTAINER BY THE AVAILABLE HORIZONTAL SCROLL AREA
+
+let slideItems = slide.length;
+
+console.log(slideItems);
+
+// DETERMINE POSTION OF EACH SLIDE WITHIN SCROLL AREA 
+
+let slidePos; 

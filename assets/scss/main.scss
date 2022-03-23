@@ -11,6 +11,15 @@
 }
 
 .custom-slider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .prev-slide {
+        transform: rotate(180deg);
+    }
+    svg {
+        width: 25px;
+    }
     .slider-content {
         max-width: 1000px;
         margin: 0 auto;
@@ -19,6 +28,7 @@
         align-items: center;
         display: flex;
         overflow-x: scroll;
+        margin: 20px;
         .slider-item {
             img {
                 width: 200px;

@@ -6,36 +6,50 @@ let pbtn = document.getElementById('prev');
 var slideContainer = document.getElementById("slide-container");
 var slide = slideContainer.getElementsByTagName("img");
 
+let sliderScroll;
+
+window.addEventListener('load', ()=>{
+    if (window.innerWidth < 980) {
+        sliderScroll = 100;
+    } else {
+        sliderScroll = 200;
+    }
+});
+
+window.addEventListener('resize', ()=>{
+    if (window.innerWidth < 980) {
+        sliderScroll = 100;
+    } else {
+        sliderScroll = 200;
+    }
+});
+
 for (var i = 0; i < slide.length; i++) {
   slide[i].addEventListener("click", function() {
+      console.log(sliderScroll);
     (document.querySelector('.active')) ? document.querySelector('.active').classList.remove('active') : '';
     this.classList.add('active');
     if(curPos != 0 || curPos % 3 == 1) {
-        document.getElementsByClassName('slider-content')[0].scrollLeft += 200;
+        document.getElementsByClassName('slider-content')[0].scrollLeft += sliderScroll;
     }
     curPos++;
   });
 } 
 
 nbtn.addEventListener("click", ()=>{
-    console.log('next');
     slides.item(curPos).classList.remove('active');
     slides.item(curPos+1).classList.add('active');
     if(curPos != 0 || curPos % 3 == 1) {
-        document.getElementsByClassName('slider-content')[0].scrollLeft += 200;
+        document.getElementsByClassName('slider-content')[0].scrollLeft += sliderScroll;
     }
     curPos++;
 });
 
 pbtn.addEventListener("click", ()=>{
-    console.log('prev');
     slides.item(curPos).classList.remove('active');
     slides.item(curPos-1).classList.add('active');
-    let leftPos = document.getElementsByClassName('active')[0].offsetLeft;
-    let sliderPos = document.getElementsByClassName('slider-content')[0].scrollLeft;
-    let diff = leftPos - sliderWidth/3;
     if(curPos != 0 || curPos % 3 == 1) {
-        document.getElementsByClassName('slider-content')[0].scrollLeft -= 200;
+        document.getElementsByClassName('slider-content')[0].scrollLeft -= sliderScroll;
     }
     curPos--;
 });

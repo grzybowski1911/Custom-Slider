@@ -11,8 +11,18 @@
   width: 200px;
   transition: width 0.5s;
 }
+@media (max-width: 980px) {
+  .custom-slider .slider-content .slider-item img {
+    width: 100px;
+  }
+}
 .custom-slider .slider-content .slider-item .active {
   width: 600px;
+}
+@media (max-width: 980px) {
+  .custom-slider .slider-content .slider-item .active {
+    width: 200px;
+  }
 }
 .custom-slider .slider-controls {
   margin: 0 auto;

@@ -35,9 +35,11 @@
                 @include respond(tab) {
                     width: 100px;
                 }
-                transition: width .5s;
+                //transition: width .5s;
+                transition: all 0.8s ease;
             }
             .active {
+                transform: scale(3);
                 width: 600px;
                 @include respond(tab) {
                     width: 200px;

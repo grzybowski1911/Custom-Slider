@@ -1,3 +1,8 @@
+// the only thing I can think of is to animate the width of the container housing the image
+// however animating the width of elements is discouraged. 
+// probably going to abandon this 
+
+
 let curPos = 0; 
 let slides = document.getElementsByClassName('slide-img');
 let nbtn = document.getElementById('next');
@@ -10,23 +15,24 @@ let sliderScroll;
 
 window.addEventListener('load', ()=>{
     if (window.innerWidth < 980) {
-        sliderScroll = 100;
+        //sliderScroll = 100;
+        sliderScroll = 75;
     } else {
-        sliderScroll = 200;
+        //sliderScroll = 200;
+        sliderScroll = 0; 
     }
 });
 
-window.addEventListener('resize', ()=>{
-    if (window.innerWidth < 980) {
-        sliderScroll = 100;
-    } else {
-        sliderScroll = 200;
-    }
-});
+//window.addEventListener('resize', ()=>{
+//    if (window.innerWidth < 980) {
+//        sliderScroll = 100;
+//    } else {
+//        sliderScroll = 200;
+//    }
+//});
 
 for (var i = 0; i < slide.length; i++) {
   slide[i].addEventListener("click", function() {
-      console.log(sliderScroll);
     (document.querySelector('.active')) ? document.querySelector('.active').classList.remove('active') : '';
     this.classList.add('active');
     if(curPos != 0 || curPos % 3 == 1) {
@@ -37,6 +43,7 @@ for (var i = 0; i < slide.length; i++) {
 } 
 
 nbtn.addEventListener("click", ()=>{
+    sliderScroll = 200;
     slides.item(curPos).classList.remove('active');
     slides.item(curPos+1).classList.add('active');
     if(curPos != 0 || curPos % 3 == 1) {
@@ -72,10 +79,12 @@ let maxScroll = slideContainer.scrollWidth;
 console.log(maxScroll);
 
 // DIVIDE NUMBER OF ITEMS IN CONTAINER BY THE AVAILABLE HORIZONTAL SCROLL AREA
-
+// this should determine at what rate the slideScroll variable should move the scroll bar at
 let slideItems = slide.length;
 
 console.log(slideItems);
+
+console.log(maxScroll / slideItems);
 
 // DETERMINE POSTION OF EACH SLIDE WITHIN SCROLL AREA 
 

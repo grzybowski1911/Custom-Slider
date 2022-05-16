@@ -39,8 +39,11 @@
                 transition: all 0.8s ease;
             }
             .active {
-                transform: scale(3);
-                width: 600px;
+                // transform is smoother but takes over entire area when width is changed
+                // need to find a way to stay in the center of the element as the transform happens 
+                // most likely in the JS?
+                transform: scale(3);  
+                //width: 600px;
                 @include respond(tab) {
                     width: 200px;
                 }
